@@ -1,8 +1,6 @@
-markdown
-# Branch & Bound - Riset Operasi
+# Tugas Pemrograman Bergerak
 
 ## Deskripsi
-Tugas Pemrograman Bergerak
 MODUL 10 & 11:
 IMPLEMENTASI CRUD LENGKAP & USER EXPERIENCE (UX)
 
