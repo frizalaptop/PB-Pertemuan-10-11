@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sistem CRUD Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ idEdit ? 'Edit Data' : 'Tambah Data' }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input label="Nama Lengkap" labelPlacement="floating" fill="outline" [(ngModel)]="inputNama"></ion-input>
+      
+      <br>
+
+      <ion-select label="Program Studi" labelPlacement="floating" fill="outline" [(ngModel)]="inputProdi">
+        <ion-select-option value="Teknik Informatika">Teknik Informatika</ion-select-option>
+        <ion-select-option value="Sistem Informasi">Sistem Informasi</ion-select-option>
+        <ion-select-option value="Design Komunikasi Visual">Design Komunikasi Visual</ion-select-option>
+        <ion-select-option value="Akuntansi">Akuntansi</ion-select-option>
+        <ion-select-option value="Ekonomi Syariah">Ekonomi Syariah</ion-select-option>
+      </ion-select>
+      
+      <br>
+
+      <ion-button expand="block" color="success" (click)="simpanData()">
+        {{ idEdit ? 'Update Data' : 'Simpan Data' }}
+      </ion-button>
+
+      <ion-button *ngIf="idEdit" expand="block" color="medium" fill="clear" (click)="resetForm()">
+        Batal Edit
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let mhs of listMahasiswa">
+      <ion-label>
+        <h2>{{ mhs.nama }}</h2>
+        <p>{{ mhs.jurusan }}</p>
+      </ion-label>
+
+      <ion-button fill="clear" color="primary" (click)="editData(mhs)">Edit</ion-button>
+      <ion-button fill="clear" color="danger" (click)="konfirmasiHapus(mhs.id)">Hapus</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
